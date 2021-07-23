@@ -1,4 +1,4 @@
-# Webhook_Tools
+# Webhook Tools
 
 Webhook Tool is software developped in python. This tool regroup a lot of option for send message, embed, files and more with the Discord Webhooks ! 
 
@@ -18,4 +18,4 @@ py main.py
 
 -----
 
-<p align="right">```Devloped by AtiPique_#1900```</p>
+<h3 align="right">Devloped by AtiPique_#1900</h3>
