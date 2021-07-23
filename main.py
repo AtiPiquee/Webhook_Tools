@@ -101,11 +101,12 @@ def Spam():
 	hook = Webhook(webhook_link)
 	message = input(Fore.LIGHTYELLOW_EX + "Enter the message that you want to spam : ")
 	messages_number = int(input("Enter the number of messages to spam : "))
+	print("")
 	sended_message = 0
 	for i in range(messages_number):
 		hook.send(message)
 		sended_message += 1
-		print("\n" + Fore.WHITE + "[", Fore.RED + time.strftime('%H:%M:%S', time.localtime()) + Fore.WHITE, "]" + Fore.LIGHTYELLOW_EX, str(sended_message) + " messages sended !")
+		print(Fore.WHITE + "[", Fore.RED + time.strftime('%H:%M:%S', time.localtime()) + Fore.WHITE, "]" + Fore.LIGHTYELLOW_EX, str(sended_message) + " messages sended !")
 
 	print(Fore.GREEN + "\nAll of the messages has been sended !")
 	input("")
