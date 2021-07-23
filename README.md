@@ -18,4 +18,4 @@ py main.py
 
 -----
 
-```Devloped by AtiPique_#1900```
+<p align="right">```Devloped by AtiPique_#1900```</p>
