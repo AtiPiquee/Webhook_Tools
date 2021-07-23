@@ -6,16 +6,14 @@ Webhook Tool is software developped in python. This tool regroup a lot of option
 
 -----
 
-<p aling="center"><strong>INSTALL</stron></p>
+<p align="center"><strong>INSTALL</stron></p>
 
 ```
 python -m pip install -r requirements.txt
-
 ```
 
 ```
 py main.py
-
 ```
 
 -----
