@@ -106,7 +106,7 @@ def Spam():
 	for i in range(messages_number):
 		hook.send(message)
 		sended_message += 1
-		print(Fore.WHITE + "[", Fore.RED + time.strftime('%H:%M:%S', time.localtime()) + Fore.WHITE, "]" + Fore.LIGHTYELLOW_EX, str(sended_message) + " messages sended !")
+		print(Fore.WHITE + "[" + Fore.RED + time.strftime('%H:%M:%S', time.localtime()) + Fore.WHITE + "]" + Fore.LIGHTYELLOW_EX, str(sended_message) + " messages sended !")
 
 	print(Fore.GREEN + "\nAll of the messages has been sended !")
 	input("")
