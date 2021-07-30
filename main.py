@@ -149,8 +149,7 @@ def Embed_Sending():
 def Infos():
 	clear()
 	current_webhook()
-	r = requests.get(webhook_link).text
-	r = json.loads(r)
+	r = requests.get(webhook_link).json()
 	print(Fore.YELLOW + "Id : " + Fore.LIGHTYELLOW_EX + r['id'])
 	print(Fore.YELLOW + "Name : " + Fore.LIGHTYELLOW_EX + r['name'])
 	print(Fore.YELLOW + "Avatar : " + Fore.LIGHTYELLOW_EX + str(r['avatar']))
