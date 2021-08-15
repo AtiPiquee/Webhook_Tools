@@ -100,7 +100,7 @@ def Spam():
 	current_webhook()
 	hook = Webhook(webhook_link)
 	message = input(Fore.LIGHTYELLOW_EX + "Enter the message that you want to spam : ")
-	messages_number = int(input("Enter the number of messages to spam : "))
+	messages_number = int(input("Enter the number of messages to spam (over 30 you have a little cooldown ) : "))
 	print("")
 	sended_message = 0
 	for i in range(messages_number):
