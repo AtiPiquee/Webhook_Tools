@@ -8,6 +8,9 @@ Webhook Tool is software developped in python. This tool regroup a lot of option
 
 <p align="center"><strong>INSTALL</stron></p>
 
+<h3>Windows : </h3>
+
+<p><br>Download the repo, extraxt it and in the folder of the tool open a terminal and type this cmd :</p>
 ```
 python -m pip install -r requirements.txt
 ```
