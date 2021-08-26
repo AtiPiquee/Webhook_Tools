@@ -11,6 +11,7 @@ Webhook Tool is software developped in python. This tool regroup a lot of option
 <h3>Windows : </h3>
 
 <p><br>Download the repo, extraxt it and in the folder of the tool open a terminal and type this cmd :</p>
+
 ```
 python -m pip install -r requirements.txt
 ```
@@ -18,6 +19,18 @@ python -m pip install -r requirements.txt
 ```
 py main.py
 ```
+
+<h3>Linux : </h3>
+
+<p><br>Open a terminal and type this commands : </p>
+
+```git clone https://github.com/AtiPique-Dev/Webhook_Tools```
+
+```cd Webhook_Tools```
+
+```pip install -r requirements.txt```
+
+```python3 main.py```
 
 -----
 
