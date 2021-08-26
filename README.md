@@ -12,13 +12,9 @@ Webhook Tool is software developped in python. This tool regroup a lot of option
 
 <p><br>Download the repo, extraxt it and in the folder of the tool open a terminal and type this cmd :</p>
 
-```
-python -m pip install -r requirements.txt
-```
+```python -m pip install -r requirements.txt```
 
-```
-py main.py
-```
+```py main.py```
 
 <h3>Linux : </h3>
 
