@@ -225,7 +225,7 @@ def Nuke():
 	elif choice == "n":
 		print(Fore.LIGHTGREEN_EX + "The webhook will not be deleted")
 
-# fonction qui affiche les crédits du tool
+# fonction qui affiche les crédits du logiciel
 
 def Credits():
 	clear()
