@@ -20,7 +20,7 @@ Webhook Tool is software developped in python. This tool regroup a lot of option
 
 <p><br>Open a terminal and type this commands : </p>
 
-```git clone https://github.com/AtiPique-Dev/Webhook_Tools```
+```git clone https://github.com/AtiPiquee/Webhook_Tools```
 
 ```cd Webhook_Tools```
 
