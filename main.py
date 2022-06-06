@@ -37,9 +37,16 @@ def start():
                                                                       
 
 		""")
-	print(Fore.LIGHTRED_EX + """[1] Message		[2] Embed\n\n[3] Spam Message	[4] Get Webhook Infos\n\n[5] Send files	        [6] Modify the webhook\n\n[7] Change webhook	[8] Nuke\n\n[9] Credits\n """)
+	print(Fore.LIGHTRED_EX + """
+[1] Message		        [2] Spam Message
+    
+[3] Get Webhook Infos 		[4] Send files
+    
+[5] Modify the webhook 		[6] Change webhook
+    
+[7] Nuke 	            	[8] Credits\n """)
 	global choice 
-	choice = int(input(Fore.RED + "           		$: "))
+	choice = input(Fore.RED + "→ ")
 	global webhook_link
 
 webhook() # appel de la fonction webhook()
@@ -49,25 +56,23 @@ os.system("title Webhook Tools") # change le nom de la fenêtre pour "Webhook To
 
 def main():
 	start()
-	if choice == 1:
+	if choice == "1":
 		Message()
-	elif choice == 2:
-		Embed()
-	elif choice == 3:
+	elif choice == "2":
 		Spam()
-	elif choice == 4:
+	elif choice == "3":
 		Infos()
-	elif choice == 5:
+	elif choice == "4":
 		Files_Sending()
-	elif choice == 6:
+	elif choice == "5":
 		Webhook_Modification()
-	elif choice == 7:
+	elif choice == "6":
 		Change_Webhook()
-	elif choice == 8:
+	elif choice == "7":
 		Nuke()
-	elif choice == 9:
+	elif choice == 8:
 		Credits()
-	elif choice != [1,2,3,4,5,6,7,8,9]:
+	else:
 		print(Fore.RED + "Error !")
 		input("")
 		main()
@@ -86,7 +91,7 @@ def Message():
 	clear()
 	current_webhook()
 	hook = Webhook(webhook_link)
-	message = input(Fore.LIGHTYELLOW_EX + "Your message : ")
+	message = input(Fore.LIGHTYELLOW_EX + "Your message → ")
 	hook.send(message)
 	print(Fore.LIGHTGREEN_EX + "\nYour message has been sended !")
 	input("")
@@ -99,8 +104,8 @@ def Spam():
 	clear()
 	current_webhook()
 	hook = Webhook(webhook_link)
-	message = input(Fore.LIGHTYELLOW_EX + "Enter the message that you want to spam : ")
-	messages_number = int(input("Enter the number of messages to spam (over 30 you have a little cooldown ) : "))
+	message = input(Fore.LIGHTYELLOW_EX + "Enter the message that you want to spam → ")
+	messages_number = int(input("Enter the number of messages to spam → "))
 	print("")
 	sended_message = 0
 	for i in range(messages_number):
@@ -121,19 +126,19 @@ def Embed_Sending():
 	hook = Webhook(webhook_link)
 
 	embed = Embed(
-		description=input("Description : "),
-    	color=input("Color (in HEX) : "),
+		description=input("Description → "),
+    	color=input("Color (in HEX) → "),
     	timestamp='now'  # sets the timestamp to current time
     	)
 
-	image1 = input("Enter the direct first image link : ")
-	image2 = input("Enter the direct second image link : ")
+	image1 = input("Enter the direct first image link → ")
+	image2 = input("Enter the direct second image link → ")
 
 
-	embed.set_author(name=input("Author name : "), icon_url=image1)
-	embed.add_field(name=input("First field title : "), value=input("First field text : "))
-	embed.add_field(name=input("Second field title : "), value=input("Second field text : "))
-	embed.set_footer(text=input("Footer text : "), icon_url=image1)
+	embed.set_author(name=input("Author name → "), icon_url=image1)
+	embed.add_field(name=input("First field title → "), value=input("First field text → "))
+	embed.add_field(name=input("Second field title → "), value=input("Second field text → "))
+	embed.set_footer(text=input("Footer text → "), icon_url=image1)
 
 	embed.set_thumbnail(image1)
 	embed.set_image(image2)
@@ -167,8 +172,8 @@ def Files_Sending():
 	current_webhook()
 	hook = Webhook(webhook_link)
 	
-	file = File(input(Fore.LIGHTYELLOW_EX + "File path : "), name=input("File name (if you don't want change file name press enter, if you want change the name precise the extention) : "))
-	hook.send(input("Message (if you don't want send message press enter): "), file=file)
+	file = File(input(Fore.LIGHTYELLOW_EX + "File path → "), name=input("File name (if you don't want change file name press enter, if you want change the name precise the extention) → "))
+	hook.send(input("Message (if you don't want send message press enter) → "), file=file)
 	print(Fore.GREEN + "\nyour file has been sended !")
 	input("")
 	main()
@@ -178,15 +183,27 @@ def Files_Sending():
 def Webhook_Modification():
 	clear()
 	current_webhook()
-	hook = Webhook(webhook_link)
-
-	with open(input(Fore.LIGHTYELLOW_EX + "Avatar | Image path :"), 'rb') as f:
-		img = f.read() 
-	
-	hook.modify(name=input("Name | Enter the new name : "), avatar=img)
-	print(Fore.GREEN + "\nWebhook succesfuly modifyed !")
-	input("")
-	main()
+	hook = webhook_link
+	print("""
+       1 → Change avatar / 
+       2 → Change Name / 
+       """)
+	choice = int(input("→ "))
+	if choice == 1:
+		img = input(Fore.LIGHTYELLOW_EX + "Avatar | Image url (images path don't work) → ")
+		data = {
+			"avatar_url": img,
+			"content": "Avatar succesfully changed !"
+		}
+		r = requests.post(hook, json = data)
+		print("Avatar changed !")
+		input("")
+		main()
+	elif choice == 2:
+		hook.modify(name=input("Name | Enter the new name → "))
+		print("Name changed !")
+		input("")
+		main()
 
 # fonction permettant de changer de webhook
 
@@ -194,7 +211,7 @@ def Change_Webhook():
 	clear()
 	current_webhook()
 	global webhook_link
-	webhook_link = input(Fore.GREEN + "\nEnter the new webhook link $: ")
+	webhook_link = input(Fore.GREEN + "\nEnter the new webhook link → ")
 	print("\n Webhook succesfuly changed !")
 	input("")
 	clear()
@@ -208,7 +225,7 @@ def Nuke():
 	hook = Webhook(webhook_link)
 	r = requests.get(webhook_link).json()
 
-	choice = input(Fore.RED + "Are you sure you really want to delete the webhook ? [Y/N] : ")
+	choice = input(Fore.RED + "Are you sure you really want to delete the webhook ? [Y/N] → ")
 
 	if choice == "Y":
 		print(Fore.LIGHTRED_EX + "The webhook " + r['name'] + " will be deleted.")
@@ -225,7 +242,7 @@ def Nuke():
 	elif choice == "n":
 		print(Fore.LIGHTGREEN_EX + "The webhook will not be deleted")
 
-# fonction qui affiche les crédits du logiciel
+# fonction qui affiche les crédits du tool
 
 def Credits():
 	clear()
